@@ -36,15 +36,15 @@ export default function About() {
           <Reveal>
             <p className="kicker">The Stylist</p>
             <h2 className="display mt-4 text-4xl sm:text-5xl">
-              Meet <span className="italic text-mocha">Abriena</span>
+              Meet <span className="italic text-mocha">{salon.stylistName}</span>
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="mt-6 leading-relaxed text-cocoa/85">
-              Based at {salon.salonName} in {salon.city}, Abriena built her practice on one
-              principle: your hair should work for your life, not against it. As a Kérastase
-              Care Coach and Salon Educator, she pairs technical precision with a real
-              commitment to scalp and hair health.
+              Based at {salon.salonName} in {salon.city}, {salon.stylistName} built this
+              practice on one principle: your hair should work for your life, not against it.
+              Every service pairs technical precision with a real commitment to scalp and hair
+              health.
             </p>
             <p className="mt-4 leading-relaxed text-cocoa/85">
               Every service starts with an honest conversation — your goals, your maintenance

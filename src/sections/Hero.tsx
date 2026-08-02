@@ -40,12 +40,14 @@ export default function Hero() {
           </Reveal>
           <Reveal delay={320}>
             <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3">
-              <span className="text-[12px] uppercase tracking-[0.18em] text-taupe">
-                Dimensional Balayage · Lived-in Color
-              </span>
-              <span className="text-[12px] uppercase tracking-[0.18em] text-taupe">
-                Scalp &amp; Hair Health · Kérastase Care Coach
-              </span>
+              {salon.specialties.slice(0, 3).map((s) => (
+                <span
+                  key={s}
+                  className="text-[12px] uppercase tracking-[0.18em] text-taupe"
+                >
+                  {s}
+                </span>
+              ))}
             </div>
           </Reveal>
         </div>

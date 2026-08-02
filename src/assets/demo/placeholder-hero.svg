@@ -1,0 +1,13 @@
+<svg width="900" height="1200" viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7F1E8"/>
+      <stop offset="55%" stop-color="#E8DCC8"/>
+      <stop offset="100%" stop-color="#D9C08F"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#g)"/>
+  <circle cx="450" cy="520" r="180" fill="#ffffff" fill-opacity="0.35"/>
+  <text x="450" y="530" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#6B5842">Hero Portrait</text>
+  <text x="450" y="1140" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" letter-spacing="3" fill="#8a765a">PLACEHOLDER PHOTO — REPLACE PER STYLIST</text>
+</svg>

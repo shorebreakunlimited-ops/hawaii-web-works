@@ -13,8 +13,8 @@ export default function Contact() {
               <span className="italic text-gold">your hair.</span>
             </h2>
             <p className="mt-6 max-w-md leading-relaxed text-cream/70">
-              The fastest way to reach Abriena is an Instagram DM or booking directly through
-              Square.
+              The fastest way to reach {salon.stylistName} is an Instagram DM or booking
+              directly through Square.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
               <a

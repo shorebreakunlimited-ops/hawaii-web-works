@@ -1,0 +1,6 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#DDC79A"/>
+  <rect x="120" y="380" width="660" height="340" rx="24" fill="#ffffff" fill-opacity="0.4"/>
+  <text x="450" y="560" text-anchor="middle" font-family="Georgia, serif" font-size="30" fill="#4d3f2c">Color / Balayage Result</text>
+  <text x="450" y="1040" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" letter-spacing="3" fill="#6f5c3e">PLACEHOLDER PHOTO</text>
+</svg>

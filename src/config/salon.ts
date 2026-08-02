@@ -27,57 +27,67 @@ export interface GalleryItem {
   tags: string[];
 }
 
-import heroPortrait from '@/assets/img01.jpg';
-import products from '@/assets/img02.jpg';
-import workingFoil from '@/assets/img03.jpg';
-import balayageBack from '@/assets/img04.jpg';
-import extensions from '@/assets/img05.jpg';
-import headspa from '@/assets/img06.jpg';
-import mensCut from '@/assets/img07.jpg';
-import blondeDuo from '@/assets/img08.jpg';
-import contentShoot from '@/assets/img09.jpg';
-import teaching from '@/assets/img10.jpg';
+import heroPortrait from '@/assets/demo/placeholder-hero.svg';
+import products from '@/assets/demo/placeholder-products.svg';
+import workingFoil from '@/assets/demo/placeholder-working.svg';
+import balayageBack from '@/assets/demo/placeholder-balayage.svg';
+import extensions from '@/assets/demo/placeholder-extensions.svg';
+import headspa from '@/assets/demo/placeholder-headspa.svg';
+import mensCut from '@/assets/demo/placeholder-cut.svg';
+import blondeDuo from '@/assets/demo/placeholder-transform.svg';
+import contentShoot from '@/assets/demo/placeholder-content.svg';
+import teaching from '@/assets/demo/placeholder-teaching.svg';
+
+/**
+ * DEMO / TEMPLATE BUILD — not a real business.
+ * This is the Hawaii Web Works salon template shown with placeholder
+ * content so a prospective client can see layout, funnel, and photo
+ * placement before their real content is dropped in. Deployed as its
+ * own, separate Netlify site — never merged back into a client's `main`.
+ */
+export const DEMO_MODE = true;
 
 export const salon = {
   // ── Identity ──────────────────────────────────────────────
-  stylistName: 'Abriena Michelle',
-  brandName: 'Abriena Michelle · Hair Artistry',
-  tagline: 'Hair that moves with your life.',
+  stylistName: '[Your Name]',
+  brandName: '[Your Name] · [Your Specialty]',
+  tagline: '[Your tagline goes here.]',
   heroSub:
-    'Precision cuts, lived-in color, scalp health, and extension artistry — designed around your face shape, lifestyle, and the hair you actually want to live in.',
-  quote: 'Pursuing passion to elevate your confidence.',
+    'This is placeholder copy showing where your intro paragraph will sit — a couple of sentences on what you do and who it’s for.',
+  quote: '[A short quote or motto — optional.]',
 
   // ── Location & contact ────────────────────────────────────
-  salonName: 'Dada Salon',
-  address: '410 Atkinson Dr, Honolulu, HI 96814',
-  city: 'Honolulu',
-  region: 'HI',
-  phone: '(719) 432-8581',
-  phoneHref: 'tel:+17194328581',
-  instagram: '@artistry.by.abri',
-  instagramUrl: 'https://instagram.com/artistry.by.abri',
+  salonName: '[Your Salon Name]',
+  address: '[Street Address], [City], [State] [ZIP]',
+  city: '[City]',
+  region: '[ST]',
+  phone: '(555) 555-5555',
+  phoneHref: 'tel:+15555555555',
+  instagram: '@yourhandle',
+  instagramUrl: 'https://instagram.com/',
   hours: [
-    { days: 'Friday', time: '10:00 AM – close' },
-    { days: 'Saturday', time: 'By appointment' },
-    { days: 'Sunday', time: 'By appointment' },
-    { days: 'Mon – Thu', time: 'Closed' },
+    { days: 'Example Day', time: '10:00 AM – close' },
+    { days: 'Example Day', time: 'By appointment' },
+    { days: 'Example Day', time: 'By appointment' },
+    { days: 'Example Days', time: 'Closed' },
   ],
 
   // ── Integrations (by ID — swap per stylist) ───────────────
   booking: {
     provider: 'square' as const,
-    servicesUrl:
-      'https://book.squareup.com/appointments/n13fzqosyuelcj/location/LCT7CGP1MX3GK/services',
-    checkoutUrl:
-      'https://book.squareup.com/appointments/n13fzqosyuelcj/location/LCT7CGP1MX3GK/checkout',
+    // Demo points at Square's own public site — never a real client's
+    // booking calendar. Real deploys swap this to the client's URL.
+    servicesUrl: 'https://squareup.com/us/en/appointments',
+    checkoutUrl: 'https://squareup.com/us/en/appointments',
   },
   intakeForm: {
     provider: 'jotform' as const,
-    // Canonical = Form A (261985830619065): the client consultation intake
-    // Bri sends every new hair client. Confirmed against bri-launch-checklist.
-    // Conditional safety gating (chemical history / safety / henna-metallic) is
-    // verified MANUALLY in Jotform — do not edit the form via API/mapper.
-    formUrl: 'https://form.jotform.com/261985830619065',
+    // Demo intentionally has NO live form wired up — see Consult.tsx,
+    // which renders a static flow/photo-placement mockup instead of a
+    // Facade+iframe. Agents are prohibited from creating/editing real
+    // Jotform forms (see docs/FORM-A-SPEC.md); real deploys get a real
+    // form ID from the salon owner, verified manually before go-live.
+    formUrl: '',
   },
 
   // ── Footer credit (agency brand — only place it appears) ──
@@ -95,8 +105,8 @@ export const salon = {
     'Extensions',
     'Headspa',
     'Color Correction',
-    'Kérastase Ambassador',
-    'Salon Educator',
+    '[Certification]',
+    '[Specialty]',
   ],
 
   // ── Services ──────────────────────────────────────────────
@@ -239,14 +249,14 @@ export const salon = {
     },
     {
       title: 'Arrive & enjoy',
-      text: 'She reviews everything beforehand. Your appointment starts informed.',
+      text: 'Everything is reviewed beforehand. Your appointment starts informed.',
     },
   ],
 
   // ── Education ─────────────────────────────────────────────
   education: {
     intro:
-      'Beyond the chair, Abriena teaches at Dada Salon and works as a Kérastase Care Coach — training stylists on scalp health, lived-in color, and the consultation-first approach that builds loyal clients.',
+      '[Optional section — remove if not applicable.] Beyond the chair, [Your Name] teaches at [Your Salon Name] — training stylists on the specialties and consultation-first approach that build loyal clients.',
     topics: [
       {
         title: 'Scalp & Hair Health Certification',
@@ -262,11 +272,11 @@ export const salon = {
       },
     ],
     nextClass: {
-      name: 'Behind the Chair: Lived-in Color Intensive',
+      name: '[Example Workshop Name]',
       description:
-        'A hands-on workshop for licensed stylists. Master dimensional balayage, healthy lightening, and the consultation system that fills your book.',
+        'A hands-on workshop for licensed stylists. This block is optional — remove if you don’t teach.',
       details: [
-        'Dada Salon · 410 Atkinson Dr, Honolulu',
+        '[Your Salon Name] · [Address]',
         'Next cohort forming — dates announced soon',
         'Licensed stylists & assistants',
       ],
@@ -274,23 +284,23 @@ export const salon = {
   },
 
   // ── Reviews ───────────────────────────────────────────────
+  // Sample review text — replace with real client reviews before launch.
   reviews: [
     {
       quote:
-        'Abriena is the only person I trust with my hair. She listened to exactly what I wanted and delivered beyond my expectations.',
-      author: 'Sarah M.',
+        '[Sample review] — the only person I trust with my hair. Listened to exactly what I wanted and delivered beyond my expectations.',
+      author: 'Sample Client',
+      source: 'Google Review',
+    },
+    {
+      quote: '[Sample review] — the treatment was incredible, I’m a client for life now.',
+      author: 'Sample Client',
       source: 'Google Review',
     },
     {
       quote:
-        'The headspa was incredible. My scalp has never felt this healthy. I’m a client for life now.',
-      author: 'Kealoha T.',
-      source: 'Google Review',
-    },
-    {
-      quote:
-        'She did my extensions and color in one session and it looked completely natural. So many compliments.',
-      author: 'Melissa R.',
+        '[Sample review] — did my color in one session and it looked completely natural. So many compliments.',
+      author: 'Sample Client',
       source: 'Instagram',
     },
   ],
@@ -299,11 +309,11 @@ export const salon = {
   faq: [
     {
       q: 'Do I need a consultation before booking color?',
-      a: 'Color corrections and extension installs require a consultation first. For balayage, toner, or root touch-ups you can book directly. Unsure? Complete the new client form and Abriena follows up before your appointment.',
+      a: 'Color corrections and extension installs require a consultation first. For balayage, toner, or root touch-ups you can book directly. Unsure? Complete the new client form and [Your Name] follows up before your appointment.',
     },
     {
       q: 'What should I arrive with?',
-      a: "Come with clean, dry hair unless told otherwise. Extension move-ups require clean, dry hair. For color, avoid heavy product buildup. If you filled out the consultation form, she'll send specific prep instructions.",
+      a: "Come with clean, dry hair unless told otherwise. Extension move-ups require clean, dry hair. For color, avoid heavy product buildup. If you filled out the consultation form, you'll receive specific prep instructions.",
     },
     {
       q: 'How far in advance should I book?',
@@ -319,7 +329,7 @@ export const salon = {
     },
     {
       q: 'What products do you use?',
-      a: 'Abriena is a certified Kérastase Care Coach and primarily uses Kérastase for treatments and retail. Smoothing treatments use the INCA or VARO organic line, chosen for your hair.',
+      a: '[Sample answer] — describe the product lines and brands you use for treatments and retail here.',
     },
   ],
 };

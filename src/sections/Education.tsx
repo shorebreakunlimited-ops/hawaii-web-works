@@ -13,7 +13,7 @@ export default function Education() {
             <Reveal>
               <p className="kicker">Education</p>
               <h2 className="display mt-4 text-4xl sm:text-5xl">
-                Learn From <span className="italic text-mocha">Abriena</span>
+                Learn From <span className="italic text-mocha">{salon.stylistName}</span>
               </h2>
               <p className="mt-5 max-w-lg leading-relaxed text-cocoa/80">{edu.intro}</p>
             </Reveal>
@@ -46,7 +46,7 @@ export default function Education() {
             <div className="relative overflow-hidden rounded-3xl bg-ink text-cream">
               <img
                 src={salon.images.education}
-                alt="Abriena teaching a class at Dada Salon"
+                alt={`${salon.stylistName} teaching a class at ${salon.salonName}`}
                 loading="lazy"
                 className="h-56 w-full object-cover opacity-70 sm:h-64"
               />
@@ -72,7 +72,7 @@ export default function Education() {
                   Request a seat via Instagram DM →
                 </a>
                 <p className="mt-4 text-[12px] text-cream/50">
-                  No payment now — Abriena follows up with dates &amp; details.
+                  No payment now — {salon.stylistName} follows up with dates &amp; details.
                 </p>
               </div>
             </div>

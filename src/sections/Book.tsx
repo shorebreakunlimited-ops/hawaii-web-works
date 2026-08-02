@@ -31,7 +31,7 @@ export default function Book() {
 
         <Reveal delay={200}>
           <p className="mx-auto mt-8 max-w-xl text-center text-sm leading-relaxed text-cream/60">
-            New to extensions or color correction? Abriena requires a consultation before
+            New to extensions or color correction? {salon.stylistName} requires a consultation before
             these services.{' '}
             <a href="#consult" className="text-gold underline decoration-gold/40 underline-offset-4">
               Complete your new client form →

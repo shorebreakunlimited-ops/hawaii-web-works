@@ -10,10 +10,17 @@ import Reviews from '@/sections/Reviews';
 import Faq from '@/sections/Faq';
 import Contact from '@/sections/Contact';
 import Footer from '@/sections/Footer';
+import { DEMO_MODE } from '@/config/salon';
 
 export default function Home() {
   return (
     <>
+      {DEMO_MODE && (
+        <div className="sticky top-0 z-[60] bg-ink px-4 py-2 text-center text-[12px] font-medium tracking-wide text-champagne">
+          Template preview — placeholder content, not a real business. Built by Hawaii Web
+          Works.
+        </div>
+      )}
       <Nav />
       <main>
         <Hero />
