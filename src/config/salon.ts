@@ -73,9 +73,11 @@ export const salon = {
   },
   intakeForm: {
     provider: 'jotform' as const,
-    // NOTE: live-site embed. Bri's launch checklist references Form A
-    // 261985830619065 — confirm canonical form, then swap the ID here.
-    formUrl: 'https://form.jotform.com/261622378989070',
+    // Canonical = Form A (261985830619065): the client consultation intake
+    // Bri sends every new hair client. Confirmed against bri-launch-checklist.
+    // Conditional safety gating (chemical history / safety / henna-metallic) is
+    // verified MANUALLY in Jotform — do not edit the form via API/mapper.
+    formUrl: 'https://form.jotform.com/261985830619065',
   },
 
   // ── Footer credit (agency brand — only place it appears) ──
