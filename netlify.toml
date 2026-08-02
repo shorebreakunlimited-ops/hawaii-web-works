@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback: react-router handles routing client-side, so every path
+# must serve index.html (otherwise deep links / refreshes 404 on Netlify).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
