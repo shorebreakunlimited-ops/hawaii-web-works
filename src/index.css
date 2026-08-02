@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 33% 98%;
+    --foreground: 24 36% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 24 36% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 24 36% 9%;
+    --primary: 24 36% 9%;
+    --primary-foreground: 36 33% 98%;
+    --secondary: 34 38% 94%;
+    --secondary-foreground: 24 36% 9%;
+    --muted: 34 30% 92%;
+    --muted-foreground: 28 10% 46%;
+    --accent: 33 43% 71%;
+    --accent-foreground: 24 36% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 32 24% 86%;
+    --input: 32 24% 86%;
+    --ring: 28 39% 47%;
+    --radius: 0.625rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans antialiased;
+    font-weight: 300;
+  }
+
+  ::selection {
+    background: #c9a579;
+    color: #1f160f;
+  }
+}
+
+@layer components {
+  .kicker {
+    @apply text-[11px] font-medium uppercase tracking-[0.28em] text-bronze;
+  }
+  .display {
+    @apply font-extralight leading-[1.02] tracking-[-0.02em];
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-normal tracking-wide text-cream transition-all duration-300 hover:bg-mocha;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-7 py-3.5 text-sm font-normal tracking-wide text-ink transition-all duration-300 hover:border-ink hover:bg-ink hover:text-cream;
+  }
+  .chip {
+    @apply rounded-full border border-sand px-3 py-1 text-[10px] font-medium uppercase tracking-[0.14em] text-mocha;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
