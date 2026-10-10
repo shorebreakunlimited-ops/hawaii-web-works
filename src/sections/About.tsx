@@ -40,17 +40,11 @@ export default function About() {
             </h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 leading-relaxed text-cocoa/85">
-              Based at {salon.salonName} in {salon.city}, Abriena built her practice on one
-              principle: your hair should work for your life, not against it. As a Kérastase
-              Care Coach and Salon Educator, she pairs technical precision with a real
-              commitment to scalp and hair health.
-            </p>
-            <p className="mt-4 leading-relaxed text-cocoa/85">
-              Every service starts with an honest conversation — your goals, your maintenance
-              reality, and what your hair actually needs. No guesswork. No cookie-cutter
-              results.
-            </p>
+            {salon.bio.map((para, i) => (
+              <p key={i} className={`${i === 0 ? 'mt-6' : 'mt-4'} leading-relaxed text-cocoa/85`}>
+                {para}
+              </p>
+            ))}
           </Reveal>
           <Reveal delay={200}>
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-sand pt-8">
