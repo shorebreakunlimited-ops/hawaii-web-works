@@ -59,14 +59,15 @@ export interface EducationClass {
   details: string[];
 }
 
-import heroPortrait from '@/assets/img01.jpg';
-import products from '@/assets/img02.jpg';
-import workingFoil from '@/assets/img03.jpg';
-import balayageBack from '@/assets/img04.jpg';
-import extensions from '@/assets/img05.jpg';
-import headspa from '@/assets/img06.jpg';
-import mensCut from '@/assets/img07.jpg';
-import blondeDuo from '@/assets/img08.jpg';
+// Bri's own photos (Form B upload + shoot, received 2026-10-17). Metadata stripped.
+import briPortrait from '@/assets/bri-portrait.jpg';
+import briBookNow from '@/assets/bri-book-now.jpg';
+import briFusioDose from '@/assets/bri-fusio-dose.jpg';
+import workBalayageBronde from '@/assets/work-balayage-bronde.jpg';
+import workDimensionalCopper from '@/assets/work-dimensional-copper.jpg';
+import workPrecisionCut from '@/assets/work-precision-cut.jpg';
+import workColorStation from '@/assets/work-color-station.jpg';
+// Teaching photos at Dada Salon from the prior build.
 import contentShoot from '@/assets/img09.jpg';
 import teaching from '@/assets/img10.jpg';
 
@@ -335,26 +336,22 @@ export const salon = {
     },
   ] as Service[],
 
-  // ── Gallery ───────────────────────────────────────────────
-  // TODO: swap in the 13 portfolio photos Bri uploaded via Form B.
+  // ── Gallery — real client work Bri supplied ─────────────
   gallery: [
-    { src: balayageBack, alt: 'Dimensional balayage — soft lived-in blonde on dark hair', tags: ['Color', 'Dimensional Balayage'] },
-    { src: extensions, alt: 'Seamless extension install — row placement detail', tags: ['Extensions', 'Full Install'] },
-    { src: headspa, alt: 'Headspa ritual — scalp treatment and massage', tags: ['Treatments', 'Headspa'] },
-    { src: blondeDuo, alt: 'Full blonde transformation — before and after', tags: ['Before / After', 'Color'] },
-    { src: mensCut, alt: 'Tailored men’s haircut', tags: ['Cut & Style', "Men's Cut"] },
-    { src: workingFoil, alt: 'Foil work in progress — face framing placement', tags: ['Color', 'Face Framing Foil'] },
+    { src: workBalayageBronde, alt: 'Soft bronde balayage with face-framing curtain bangs', tags: ['Color', 'Dimensional Balayage'] },
+    { src: workDimensionalCopper, alt: 'Rich brunette with warm copper dimension', tags: ['Color', 'Dimensional Color'] },
+    { src: workPrecisionCut, alt: 'Precision point-cutting on a client’s ends', tags: ['Cut & Style', 'Precision Cut'] },
+    { src: workColorStation, alt: 'Lightener mixed and foils prepped at the color station', tags: ['Color', 'Behind the Chair'] },
   ] as GalleryItem[],
 
   // ── Imagery ───────────────────────────────────────────────
   images: {
-    heroPortrait,
-    heroSecondary: balayageBack,
-    about: workingFoil,
-    aboutDetail: products,
+    heroPortrait: briPortrait,
+    heroSecondary: workBalayageBronde,
+    about: briBookNow,
+    aboutDetail: briFusioDose,
     education: teaching,
     educationDetail: contentShoot,
-    headspa,
   },
 
   // ── New-client steps ──────────────────────────────────────

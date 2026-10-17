@@ -11,8 +11,8 @@ export default function Portfolio() {
             Recent <span className="italic text-mocha">Transformations</span>
           </h2>
           <p className="mt-4 max-w-lg leading-relaxed text-cocoa/80">
-            Real client work — color, cuts, extensions, and the kind of healthy-hair detail
-            that doesn't photograph by accident.
+            Real client work from Abriena's chair — dimensional color, precision cuts, and
+            healthy-hair detail.
           </p>
         </div>
         <a
@@ -25,7 +25,11 @@ export default function Portfolio() {
         </a>
       </Reveal>
 
-      <div className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3">
+      <div
+        className={`mt-12 grid grid-cols-2 gap-4 ${
+          salon.gallery.length % 4 === 0 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'
+        }`}
+      >
         {salon.gallery.map((g, i) => (
           <Reveal key={g.alt} delay={Math.min(i, 4) * 70}>
             <figure className="group relative overflow-hidden rounded-2xl">

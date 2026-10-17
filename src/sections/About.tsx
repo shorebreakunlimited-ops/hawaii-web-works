@@ -10,7 +10,7 @@ export default function About() {
           <div className="overflow-hidden rounded-3xl">
             <img
               src={salon.images.about}
-              alt={`${salon.stylistName} working on a lived-in color service`}
+              alt={`${salon.stylistName} at the salon`}
               className="aspect-[4/5] w-full object-cover"
               loading="lazy"
             />
@@ -18,7 +18,7 @@ export default function About() {
           <div className="absolute -bottom-10 -right-4 hidden w-44 overflow-hidden rounded-2xl border-4 border-cream shadow-xl sm:block lg:-right-8 lg:w-56">
             <img
               src={salon.images.aboutDetail}
-              alt="Kérastase ritual products at the station"
+              alt="Kérastase Fusio-Dose treatments"
               className="aspect-[3/4] w-full object-cover"
               loading="lazy"
             />
