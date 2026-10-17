@@ -70,7 +70,7 @@ export default function Hero() {
               />
             </div>
             <div className="absolute right-3 top-6 rounded-full bg-ink/85 px-4 py-2 text-[11px] uppercase tracking-[0.18em] text-champagne backdrop-blur-sm">
-              5★ Client Rated
+              Free Consultations
             </div>
           </div>
         </Reveal>
