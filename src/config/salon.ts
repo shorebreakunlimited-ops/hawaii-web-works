@@ -96,7 +96,7 @@ export const salon = {
   region: 'HI',
   phone: '(719) 432-8581',
   phoneHref: 'tel:+17194328581',
-  email: 'abirenamichelle@gmail.com',
+  email: 'abrienamichelle@gmail.com',
   instagram: '@artistry.by.abri',
   instagramUrl: 'https://instagram.com/artistry.by.abri',
   hours: [
