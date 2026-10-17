@@ -64,3 +64,26 @@ appointment. Verify the notification email address and that submissions actually
   go live with **booking only**; the form ships to Bri once Section 5 passes.
 - Jotform/Square iframes degrade performance → the site loads this form behind a click **facade**
   (`src/components/Facade.tsx`); keep that pattern.
+
+---
+
+## 7. Chemical services that must trigger the safety block (from Bri's live Square menu, 2026-10-10)
+
+Each needs its own flat SHOW rule (`contains`, not `equals`) on the service selector, with the
+option text matching the Square name exactly. Source of truth in code: `chemical: true` in
+`src/config/salon.ts`. Bri's Form B intake listed only 5 — the five marked **NEW** were missing.
+
+1. Dimensional Balayage
+2. Partial Dimensional Balayage
+3. Face Framing Foil — **NEW**
+4. Full Color — **NEW**
+5. Roots + Toner — **NEW**
+6. Toner
+7. Root Touch Up for Gray (STYLE INCLUDED)
+8. Root Touch Up for Gray (NO STYLE)
+9. Color Correction — **NEW**
+10. Smoothing Treatment (INCA / VARO) — **NEW**
+
+The go-live gate (Section 5) passes only when the chemical test is run against at least one
+NEW service as well as an original one. Then set `intakeForm.chemicalGateVerified: true` in
+config — that is the single switch that routes chemical-service CTAs to the form before booking.

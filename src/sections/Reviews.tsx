@@ -2,6 +2,9 @@ import { salon } from '@/config/salon';
 import Reveal from '@/components/Reveal';
 
 export default function Reviews() {
+  // Real, attributable reviews only — no placeholders. Empty → no section.
+  if (salon.reviews.length === 0) return null;
+
   return (
     <section id="reviews" className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-28">
       <Reveal className="text-center">

@@ -36,46 +36,60 @@ export default function Education() {
 
             <Reveal delay={300}>
               <p className="mt-8 text-[12px] uppercase tracking-[0.18em] text-taupe">
-                Teaching a few days a week at {salon.salonName} · {salon.city}
+                Educator at {salon.salonName} · {salon.city}
               </p>
             </Reveal>
           </div>
 
-          {/* Next class card */}
+          {/* Class card only when a real class is confirmed; otherwise imagery */}
           <Reveal delay={150}>
-            <div className="relative overflow-hidden rounded-3xl bg-ink text-cream">
-              <img
-                src={salon.images.education}
-                alt="Abriena teaching a class at Dada Salon"
-                loading="lazy"
-                className="h-56 w-full object-cover opacity-70 sm:h-64"
-              />
-              <div className="p-8 sm:p-10">
-                <p className="kicker !text-champagne">Next Class · Limited Seats</p>
-                <h3 className="display mt-4 text-3xl sm:text-4xl">{edu.nextClass.name}</h3>
-                <p className="mt-4 text-sm leading-relaxed text-cream/70 sm:text-base">
-                  {edu.nextClass.description}
-                </p>
-                <ul className="mt-6 space-y-2.5">
-                  {edu.nextClass.details.map((d) => (
-                    <li key={d} className="flex items-center gap-3 text-sm text-cream/80">
-                      <span className="text-gold">✦</span> {d}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={salon.instagramUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-champagne px-7 py-3.5 text-sm tracking-wide text-ink transition-colors hover:bg-gold"
-                >
-                  Request a seat via Instagram DM →
-                </a>
-                <p className="mt-4 text-[12px] text-cream/50">
-                  No payment now — Abriena follows up with dates &amp; details.
-                </p>
+            {edu.nextClass ? (
+              <div className="relative overflow-hidden rounded-3xl bg-ink text-cream">
+                <img
+                  src={salon.images.education}
+                  alt={`${salon.stylistName} teaching at ${salon.salonName}`}
+                  loading="lazy"
+                  className="h-56 w-full object-cover opacity-70 sm:h-64"
+                />
+                <div className="p-8 sm:p-10">
+                  <p className="kicker !text-champagne">Next Class</p>
+                  <h3 className="display mt-4 text-3xl sm:text-4xl">{edu.nextClass.name}</h3>
+                  <p className="mt-4 text-sm leading-relaxed text-cream/70 sm:text-base">
+                    {edu.nextClass.description}
+                  </p>
+                  <ul className="mt-6 space-y-2.5">
+                    {edu.nextClass.details.map((d) => (
+                      <li key={d} className="flex items-center gap-3 text-sm text-cream/80">
+                        <span className="text-gold">✦</span> {d}
+                      </li>
+                    ))}
+                  </ul>
+                  <a
+                    href={salon.instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-champagne px-7 py-3.5 text-sm tracking-wide text-ink transition-colors hover:bg-gold"
+                  >
+                    Ask about the class via Instagram DM →
+                  </a>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="grid grid-cols-2 gap-4">
+                <img
+                  src={salon.images.education}
+                  alt={`${salon.stylistName} teaching at ${salon.salonName}`}
+                  loading="lazy"
+                  className="h-72 w-full rounded-3xl object-cover sm:h-96"
+                />
+                <img
+                  src={salon.images.educationDetail}
+                  alt={`${salon.stylistName} behind the scenes`}
+                  loading="lazy"
+                  className="mt-10 h-72 w-full rounded-3xl object-cover sm:h-96"
+                />
+              </div>
+            )}
           </Reveal>
         </div>
       </div>

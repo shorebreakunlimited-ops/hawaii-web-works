@@ -10,7 +10,7 @@ export default function About() {
           <div className="overflow-hidden rounded-3xl">
             <img
               src={salon.images.about}
-              alt={`${salon.stylistName} working on a lived-in color service`}
+              alt={`${salon.stylistName} at the salon`}
               className="aspect-[4/5] w-full object-cover"
               loading="lazy"
             />
@@ -18,7 +18,7 @@ export default function About() {
           <div className="absolute -bottom-10 -right-4 hidden w-44 overflow-hidden rounded-2xl border-4 border-cream shadow-xl sm:block lg:-right-8 lg:w-56">
             <img
               src={salon.images.aboutDetail}
-              alt="Kérastase ritual products at the station"
+              alt="Kérastase Fusio-Dose treatments"
               className="aspect-[3/4] w-full object-cover"
               loading="lazy"
             />
@@ -40,17 +40,11 @@ export default function About() {
             </h2>
           </Reveal>
           <Reveal delay={100}>
-            <p className="mt-6 leading-relaxed text-cocoa/85">
-              Based at {salon.salonName} in {salon.city}, Abriena built her practice on one
-              principle: your hair should work for your life, not against it. As a Kérastase
-              Care Coach and Salon Educator, she pairs technical precision with a real
-              commitment to scalp and hair health.
-            </p>
-            <p className="mt-4 leading-relaxed text-cocoa/85">
-              Every service starts with an honest conversation — your goals, your maintenance
-              reality, and what your hair actually needs. No guesswork. No cookie-cutter
-              results.
-            </p>
+            {salon.bio.map((para, i) => (
+              <p key={i} className={`${i === 0 ? 'mt-6' : 'mt-4'} leading-relaxed text-cocoa/85`}>
+                {para}
+              </p>
+            ))}
           </Reveal>
           <Reveal delay={200}>
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-sand pt-8">

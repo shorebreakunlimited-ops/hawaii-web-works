@@ -7,31 +7,44 @@ const filters = [
   { key: 'color', label: 'Color' },
   { key: 'cut', label: 'Cut & Style' },
   { key: 'extensions', label: 'Extensions' },
-  { key: 'wellness', label: 'Wellness' },
+  { key: 'treatments', label: 'Treatments' },
+  { key: 'consult', label: 'Consultations' },
 ] as const;
 
 type FilterKey = (typeof filters)[number]['key'];
 
+/**
+ * CTA routing — one path:
+ *  - Chemical service AND Form A gate verified live → consultation form first.
+ *  - Stylist-required consult (Square menu) → Square, where the free
+ *    consultation is booked before the service.
+ *  - Everything else → Square.
+ */
+function ctaFor(service: Service) {
+  if (service.chemical && salon.intakeForm.chemicalGateVerified) {
+    return { href: '#consult', label: 'Start with the consult form →', external: false };
+  }
+  if (service.consultFirst) {
+    return { href: salon.booking.servicesUrl, label: 'Book a consultation first →', external: true };
+  }
+  return { href: salon.booking.servicesUrl, label: 'Book this service →', external: true };
+}
+
+function badgeFor(service: Service) {
+  if (service.consultFirst) return { label: 'Consult Required', className: 'border-bronze/50 bg-champagne/30' };
+  if (service.existingClientsOnly) return { label: 'Existing Clients', className: 'border-sand bg-white' };
+  return null;
+}
+
 function ServiceCard({ service }: { service: Service }) {
-  const cta = service.consultFirst
-    ? { href: '#consult', label: 'Book consultation first →' }
-    : { href: salon.booking.servicesUrl, label: 'Book this service →' };
+  const cta = ctaFor(service);
+  const badge = badgeFor(service);
 
   return (
     <article className="group flex flex-col rounded-3xl border border-sand/70 bg-white/60 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:bg-white hover:shadow-[0_20px_50px_-24px_rgba(31,22,15,0.3)]">
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-xl font-normal leading-snug">{service.name}</h3>
-        {service.badge && (
-          <span
-            className={`chip shrink-0 ${
-              service.badge === 'Consult Required'
-                ? 'border-bronze/50 bg-champagne/30'
-                : 'border-gold bg-soft'
-            }`}
-          >
-            {service.badge}
-          </span>
-        )}
+        {badge && <span className={`chip shrink-0 ${badge.className}`}>{badge.label}</span>}
       </div>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-cocoa/75">{service.description}</p>
       <div className="mt-6 flex items-end justify-between border-t border-sand/60 pt-5">
@@ -43,7 +56,7 @@ function ServiceCard({ service }: { service: Service }) {
         </div>
         <a
           href={cta.href}
-          {...(service.consultFirst ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
+          {...(cta.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           className="text-[13px] font-normal text-bronze underline decoration-sand underline-offset-4 transition-colors group-hover:text-ink"
         >
           {cta.label}
